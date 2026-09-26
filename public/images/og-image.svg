@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ogBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050816"/>
+      <stop offset="50%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#070D1E"/>
+    </linearGradient>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="50%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#8B5CF6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#ogBg)"/>
+
+  <!-- Subtle grid lines -->
+  <g stroke="rgba(255, 255, 255, 0.04)" stroke-width="1">
+    <line x1="0" y1="126" x2="1200" y2="126"/>
+    <line x1="0" y1="252" x2="1200" y2="252"/>
+    <line x1="0" y1="378" x2="1200" y2="378"/>
+    <line x1="0" y1="504" x2="1200" y2="504"/>
+    <line x1="240" y1="0" x2="240" y2="630"/>
+    <line x1="480" y1="0" x2="480" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/>
+    <line x1="960" y1="0" x2="960" y2="630"/>
+  </g>
+
+  <!-- Glowing Aura -->
+  <circle cx="200" cy="200" r="220" fill="#3B82F6" opacity="0.15" filter="blur(60px)"/>
+  <circle cx="1000" cy="400" r="250" fill="#8B5CF6" opacity="0.12" filter="blur(70px)"/>
+
+  <g transform="translate(100, 150)">
+    <!-- Status Badge -->
+    <rect width="250" height="36" rx="18" fill="rgba(59, 130, 246, 0.15)" stroke="rgba(59, 130, 246, 0.4)"/>
+    <circle cx="20" cy="18" r="4" fill="#10B981"/>
+    <text x="35" y="22" fill="#93C5FD" font-family="sans-serif" font-size="12" font-weight="600" letter-spacing="1">AVAILABLE FOR OPPORTUNITIES</text>
+
+    <!-- Main Title -->
+    <text x="0" y="100" fill="#FFFFFF" font-family="sans-serif" font-size="54" font-weight="800" letter-spacing="-1.5">Meskatul Masabhi Shanto</text>
+    
+    <!-- Subtitle with gradient -->
+    <text x="0" y="160" fill="url(#textGrad)" font-family="sans-serif" font-size="28" font-weight="700">Full-Stack Web Developer • UI/UX Designer</text>
+
+    <!-- Description -->
+    <text x="0" y="210" fill="#94A3B8" font-family="sans-serif" font-size="20">B.Sc. in Computer Science &amp; Engineering • Gono Bishwabidyalay</text>
+    <text x="0" y="240" fill="#64748B" font-family="sans-serif" font-size="18">Crafting responsive, high-performance, and user-centered web applications</text>
+
+    <!-- Tech Stack Pill Row -->
+    <g transform="translate(0, 290)">
+      <rect x="0" y="0" width="100" height="34" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+      <text x="50" y="22" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="600" text-anchor="middle">Next.js</text>
+
+      <rect x="115" y="0" width="90" height="34" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+      <text x="160" y="22" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="600" text-anchor="middle">React</text>
+
+      <rect x="220" y="0" width="125" height="34" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+      <text x="282" y="22" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="600" text-anchor="middle">TypeScript</text>
+
+      <rect x="360" y="0" width="125" height="34" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+      <text x="422" y="22" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="600" text-anchor="middle">Tailwind CSS</text>
+
+      <rect x="500" y="0" width="100" height="34" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+      <text x="550" y="22" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="600" text-anchor="middle">Node.js</text>
+
+      <rect x="615" y="0" width="90" height="34" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)"/>
+      <text x="660" y="22" fill="#FFFFFF" font-family="sans-serif" font-size="13" font-weight="600" text-anchor="middle">Figma</text>
+    </g>
+  </g>
+</svg>
