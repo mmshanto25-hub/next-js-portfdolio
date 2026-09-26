@@ -37,9 +37,8 @@ export function FeaturedProjectsSection() {
                 >
                   {/* Image Column */}
                   <div
-                    className={`lg:col-span-7 ${
-                      isEven ? "lg:order-2" : "lg:order-1"
-                    }`}
+                    className={`lg:col-span-7 ${isEven ? "lg:order-2" : "lg:order-1"
+                      }`}
                   >
                     <Link
                       href={`/projects/${project.slug}`}
@@ -53,7 +52,7 @@ export function FeaturedProjectsSection() {
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#050816]/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-                      
+
                       <div className="absolute top-4 left-4">
                         <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#050816]/80 backdrop-blur-md border border-white/15 text-accent-cyan">
                           {project.number}
@@ -64,9 +63,8 @@ export function FeaturedProjectsSection() {
 
                   {/* Content Column */}
                   <div
-                    className={`lg:col-span-5 flex flex-col justify-center ${
-                      isEven ? "lg:order-1" : "lg:order-2"
-                    }`}
+                    className={`lg:col-span-5 flex flex-col justify-center ${isEven ? "lg:order-1" : "lg:order-2"
+                      }`}
                   >
                     <div className="flex items-center gap-3 mb-3">
                       <Badge variant="blue" size="sm">

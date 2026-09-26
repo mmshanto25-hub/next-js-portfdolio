@@ -26,7 +26,7 @@ export function AboutPreviewSection() {
                     height={400}
                     className="w-full h-auto object-contain transition-transform duration-500 hover:scale-105"
                   />
-                  
+
                   {/* Floating education pill */}
                   <div className="absolute bottom-4 left-4 right-4 p-3.5 rounded-xl bg-[#050816]/90 backdrop-blur-md border border-white/10 flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-accent-blue/20 text-accent-cyan">

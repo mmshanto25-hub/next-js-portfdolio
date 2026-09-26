@@ -114,11 +114,10 @@ export function ContactForm() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Jane Doe"
-                className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white text-sm outline-none transition-all placeholder-text-muted focus:ring-2 focus:ring-accent-blue/30 ${
-                  errors.name
+                className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white text-sm outline-none transition-all placeholder-text-muted focus:ring-2 focus:ring-accent-blue/30 ${errors.name
                     ? "border-rose-500/60 focus:border-rose-500"
                     : "border-white/[0.08] focus:border-accent-blue"
-                }`}
+                  }`}
               />
               {errors.name && (
                 <p className="text-[11px] text-rose-400 mt-1.5">{errors.name}</p>
@@ -139,11 +138,10 @@ export function ContactForm() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="jane@example.com"
-                className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white text-sm outline-none transition-all placeholder-text-muted focus:ring-2 focus:ring-accent-blue/30 ${
-                  errors.email
+                className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white text-sm outline-none transition-all placeholder-text-muted focus:ring-2 focus:ring-accent-blue/30 ${errors.email
                     ? "border-rose-500/60 focus:border-rose-500"
                     : "border-white/[0.08] focus:border-accent-blue"
-                }`}
+                  }`}
               />
               {errors.email && (
                 <p className="text-[11px] text-rose-400 mt-1.5">{errors.email}</p>
@@ -166,11 +164,10 @@ export function ContactForm() {
               value={formData.subject}
               onChange={handleChange}
               placeholder="Project Inquiry / Frontend Development"
-              className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white text-sm outline-none transition-all placeholder-text-muted focus:ring-2 focus:ring-accent-blue/30 ${
-                errors.subject
+              className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white text-sm outline-none transition-all placeholder-text-muted focus:ring-2 focus:ring-accent-blue/30 ${errors.subject
                   ? "border-rose-500/60 focus:border-rose-500"
                   : "border-white/[0.08] focus:border-accent-blue"
-              }`}
+                }`}
             />
             {errors.subject && (
               <p className="text-[11px] text-rose-400 mt-1.5">{errors.subject}</p>
@@ -192,11 +189,10 @@ export function ContactForm() {
               value={formData.message}
               onChange={handleChange}
               placeholder="Tell me about your project, timeline, or opportunity..."
-              className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white text-sm outline-none transition-all placeholder-text-muted focus:ring-2 focus:ring-accent-blue/30 resize-none ${
-                errors.message
+              className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white text-sm outline-none transition-all placeholder-text-muted focus:ring-2 focus:ring-accent-blue/30 resize-none ${errors.message
                   ? "border-rose-500/60 focus:border-rose-500"
                   : "border-white/[0.08] focus:border-accent-blue"
-              }`}
+                }`}
             />
             {errors.message && (
               <p className="text-[11px] text-rose-400 mt-1.5">{errors.message}</p>
