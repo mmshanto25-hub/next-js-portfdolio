@@ -10,6 +10,7 @@ import { projects } from "@/data/projects";
 import { ArrowUpRight, ExternalLink, ArrowRight } from "lucide-react";
 import { Github } from "@/components/ui/Icons";
 import { Badge } from "@/components/ui/Badge";
+import { assetPath } from "@/lib/utils";
 
 export function FeaturedProjectsSection() {
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 4);
@@ -45,7 +46,7 @@ export function FeaturedProjectsSection() {
                       className="group block relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900/60 border border-white/10"
                     >
                       <Image
-                        src={project.image}
+                        src={assetPath(project.image)}
                         alt={project.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 55vw"

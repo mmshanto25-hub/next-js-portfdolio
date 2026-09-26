@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { Send, CheckCircle2, AlertCircle, Loader2 } from "lucide-react";
+import { Send, CheckCircle2 } from "lucide-react";
 import type { ContactRequestBody } from "@/app/api/contact/route";
+import { personalInfo } from "@/data/social";
 
 interface FormErrors {
   name?: string;
@@ -20,8 +21,7 @@ export function ContactForm() {
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [serverMessage, setServerMessage] = useState<string>("");
+  const [status, setStatus] = useState<"idle" | "opened">("idle");
 
   const validate = (): boolean => {
     const newErrors: FormErrors = {};
@@ -61,30 +61,13 @@ export function ContactForm() {
     e.preventDefault();
     if (!validate()) return;
 
-    setStatus("loading");
-    setServerMessage("");
+    const subject = encodeURIComponent(formData.subject.trim());
+    const body = encodeURIComponent(
+      `Name: ${formData.name.trim()}\nEmail: ${formData.email.trim()}\n\n${formData.message.trim()}`
+    );
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await res.json();
-
-      if (res.ok && data.success) {
-        setStatus("success");
-        setServerMessage(data.message || "Message sent successfully!");
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      } else {
-        setStatus("error");
-        setServerMessage(data.error || "Failed to send message. Please try again.");
-      }
-    } catch (err) {
-      setStatus("error");
-      setServerMessage("A network error occurred. Please check your connection and try again.");
-    }
+    window.location.href = `mailto:${personalInfo.email}?subject=${subject}&body=${body}`;
+    setStatus("opened");
   };
 
   return (
@@ -96,14 +79,14 @@ export function ContactForm() {
         Fill out the form below and I will respond to your inquiry promptly.
       </p>
 
-      {status === "success" ? (
+      {status === "opened" ? (
         <div className="p-8 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-center space-y-4">
           <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
             <CheckCircle2 className="w-6 h-6" />
           </div>
-          <h4 className="text-lg font-bold text-white font-display">Message Sent!</h4>
+          <h4 className="text-lg font-bold text-white font-display">Email Draft Ready</h4>
           <p className="text-xs sm:text-sm text-slate-300 max-w-sm mx-auto">
-            {serverMessage}
+            Your email app should open with the message filled in. Send it there to complete your inquiry.
           </p>
           <button
             type="button"
@@ -115,13 +98,6 @@ export function ContactForm() {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5" noValidate>
-          {status === "error" && (
-            <div className="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30 flex items-start gap-3 text-rose-300 text-xs sm:text-sm">
-              <AlertCircle className="w-5 h-5 shrink-0 mt-0.5 text-rose-400" />
-              <span>{serverMessage}</span>
-            </div>
-          )}
-
           {/* Name & Email Fields */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             <div>
@@ -138,7 +114,6 @@ export function ContactForm() {
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Jane Doe"
-                disabled={status === "loading"}
                 className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white text-sm outline-none transition-all placeholder-text-muted focus:ring-2 focus:ring-accent-blue/30 ${
                   errors.name
                     ? "border-rose-500/60 focus:border-rose-500"
@@ -164,7 +139,6 @@ export function ContactForm() {
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="jane@example.com"
-                disabled={status === "loading"}
                 className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white text-sm outline-none transition-all placeholder-text-muted focus:ring-2 focus:ring-accent-blue/30 ${
                   errors.email
                     ? "border-rose-500/60 focus:border-rose-500"
@@ -192,7 +166,6 @@ export function ContactForm() {
               value={formData.subject}
               onChange={handleChange}
               placeholder="Project Inquiry / Frontend Development"
-              disabled={status === "loading"}
               className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white text-sm outline-none transition-all placeholder-text-muted focus:ring-2 focus:ring-accent-blue/30 ${
                 errors.subject
                   ? "border-rose-500/60 focus:border-rose-500"
@@ -219,7 +192,6 @@ export function ContactForm() {
               value={formData.message}
               onChange={handleChange}
               placeholder="Tell me about your project, timeline, or opportunity..."
-              disabled={status === "loading"}
               className={`w-full px-4 py-3 rounded-xl bg-white/[0.04] border text-white text-sm outline-none transition-all placeholder-text-muted focus:ring-2 focus:ring-accent-blue/30 resize-none ${
                 errors.message
                   ? "border-rose-500/60 focus:border-rose-500"
@@ -234,20 +206,10 @@ export function ContactForm() {
           {/* Submit Button */}
           <button
             type="submit"
-            disabled={status === "loading"}
             className="w-full py-3.5 px-6 rounded-xl bg-accent-blue hover:bg-blue-600 text-white font-semibold text-sm transition-all shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2 disabled:opacity-60 disabled:pointer-events-none hover:scale-[1.01] active:scale-[0.99]"
           >
-            {status === "loading" ? (
-              <>
-                <Loader2 className="w-4 h-4 animate-spin" />
-                <span>Sending Message...</span>
-              </>
-            ) : (
-              <>
-                <span>Send Message</span>
-                <Send className="w-4 h-4" />
-              </>
-            )}
+            <span>Open Email App</span>
+            <Send className="w-4 h-4" />
           </button>
         </form>
       )}

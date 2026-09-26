@@ -23,6 +23,7 @@ import {
 import { Github } from "@/components/ui/Icons";
 import { Badge } from "@/components/ui/Badge";
 import { GlassCard } from "@/components/ui/GlassCard";
+import { assetPath } from "@/lib/utils";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -141,7 +142,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         {/* 2. Visual Container */}
         <div className="mb-20 rounded-3xl overflow-hidden bg-slate-900/60 border border-white/10 shadow-2xl relative aspect-[16/9] w-full">
           <Image
-            src={project.image}
+            src={assetPath(project.image)}
             alt={project.title}
             fill
             priority

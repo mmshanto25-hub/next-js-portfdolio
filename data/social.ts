@@ -11,7 +11,7 @@ export const personalInfo = {
   role: "Full-Stack Web Developer • UI/UX Designer",
   subtitle: "Computer Science & Engineering Student",
   status: "AVAILABLE FOR OPPORTUNITIES",
-  email: "meskatul.shanto@example.com", // Professional contact address
+  email: "mmshanto25@gmail.com",
   github: "https://github.com/shantodev",
   linkedin: "https://linkedin.com/in/shantodev",
   location: "Dhaka, Bangladesh",
@@ -41,7 +41,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "Email",
-    url: "mailto:meskatul.shanto@example.com",
+    url: "mailto:mmshanto25@gmail.com",
     label: "Send a direct message via email",
     icon: "Mail",
   },

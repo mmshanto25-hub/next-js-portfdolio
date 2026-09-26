@@ -15,7 +15,7 @@ import {
   Layers,
 } from "lucide-react";
 import { Github } from "@/components/ui/Icons";
-import { cn } from "@/lib/utils";
+import { assetPath, cn } from "@/lib/utils";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { Badge } from "@/components/ui/Badge";
 
@@ -162,7 +162,7 @@ export function ProjectsArchive() {
                     className="block relative w-full aspect-[16/10] overflow-hidden bg-slate-900 border-b border-white/[0.08]"
                   >
                     <Image
-                      src={project.image}
+                      src={assetPath(project.image)}
                       alt={project.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

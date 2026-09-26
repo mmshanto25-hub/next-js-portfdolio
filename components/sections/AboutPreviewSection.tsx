@@ -7,6 +7,7 @@ import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { ArrowRight, CheckCircle2, Sparkles, GraduationCap } from "lucide-react";
 import { personalInfo } from "@/data/social";
+import { assetPath } from "@/lib/utils";
 
 export function AboutPreviewSection() {
   return (
@@ -19,7 +20,7 @@ export function AboutPreviewSection() {
               <div className="relative mx-auto max-w-md aspect-square rounded-3xl overflow-hidden p-1 bg-gradient-to-br from-accent-blue/30 via-accent-cyan/20 to-accent-purple/30">
                 <div className="relative w-full h-full rounded-[22px] overflow-hidden bg-[#0A0F1D] flex items-center justify-center p-6 border border-white/10">
                   <Image
-                    src="/images/shanto-avatar.svg"
+                    src={assetPath("/images/shanto-avatar.svg")}
                     alt={personalInfo.name}
                     width={400}
                     height={400}

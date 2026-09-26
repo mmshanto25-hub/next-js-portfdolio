@@ -8,6 +8,7 @@ import { FadeIn } from "@/components/animations/FadeIn";
 import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { personalInfo } from "@/data/social";
+import { assetPath } from "@/lib/utils";
 import {
   GraduationCap,
   Code2,
@@ -122,7 +123,7 @@ export default function AboutPage() {
               <div className="relative w-72 sm:w-80 aspect-square rounded-3xl p-1 bg-gradient-to-tr from-accent-blue/30 via-accent-cyan/20 to-accent-purple/30">
                 <div className="w-full h-full rounded-[22px] bg-[#0A0F1D] p-6 border border-white/10 flex items-center justify-center">
                   <Image
-                    src="/images/shanto-avatar.svg"
+                    src={assetPath("/images/shanto-avatar.svg")}
                     alt={personalInfo.name}
                     width={320}
                     height={320}
