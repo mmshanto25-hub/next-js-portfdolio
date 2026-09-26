@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="nexusBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050816"/>
+      <stop offset="50%" stop-color="#091426"/>
+      <stop offset="100%" stop-color="#051B2E"/>
+    </linearGradient>
+    <linearGradient id="cyanBlue" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06B6D4"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="675" fill="url(#nexusBg)"/>
+
+  <!-- Code Console Window -->
+  <g transform="translate(140, 90)">
+    <rect width="920" height="495" rx="16" fill="rgba(15, 23, 42, 0.85)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5"/>
+    
+    <!-- Header -->
+    <rect width="920" height="48" rx="16" fill="rgba(255, 255, 255, 0.03)"/>
+    <circle cx="28" cy="24" r="6" fill="#EF4444"/>
+    <circle cx="48" cy="24" r="6" fill="#F59E0B"/>
+    <circle cx="68" cy="24" r="6" fill="#10B981"/>
+    <text x="460" y="29" fill="#94A3B8" font-family="monospace" font-size="13" text-anchor="middle">nexus-api-gateway / v1 / endpoints</text>
+    
+    <!-- Method & URL Bar -->
+    <rect x="40" y="70" width="840" height="46" rx="8" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(255, 255, 255, 0.08)"/>
+    <!-- GET Badge -->
+    <rect x="52" y="80" width="56" height="26" rx="4" fill="rgba(16, 185, 129, 0.2)"/>
+    <text x="80" y="98" fill="#10B981" font-family="monospace" font-weight="bold" font-size="12" text-anchor="middle">GET</text>
+    <text x="125" y="98" fill="#E2E8F0" font-family="monospace" font-size="13">https://api.nexus.shanto.dev/v1/metrics/runtime</text>
+    <!-- Send Button -->
+    <rect x="760" y="77" width="105" height="32" rx="6" fill="url(#cyanBlue)"/>
+    <text x="812" y="98" fill="#FFFFFF" font-family="sans-serif" font-weight="600" font-size="13" text-anchor="middle">Execute</text>
+
+    <!-- Response Panels -->
+    <!-- Left: Request Params & Headers -->
+    <rect x="40" y="135" width="360" height="315" rx="10" fill="rgba(255, 255, 255, 0.02)" stroke="rgba(255,255,255,0.06)"/>
+    <text x="60" y="165" fill="#94A3B8" font-family="sans-serif" font-size="13" font-weight="600">Request Headers &amp; Query</text>
+    <text x="60" y="200" fill="#64748B" font-family="monospace" font-size="12">Accept: application/json</text>
+    <text x="60" y="225" fill="#64748B" font-family="monospace" font-size="12">Authorization: Bearer ●●●●●●●●</text>
+    <text x="60" y="250" fill="#64748B" font-family="monospace" font-size="12">Cache-Control: no-cache</text>
+    <text x="60" y="290" fill="#94A3B8" font-family="sans-serif" font-size="13" font-weight="600">Database Schema Target</text>
+    <text x="60" y="320" fill="#06B6D4" font-family="monospace" font-size="12">PostgreSQL &gt; tbl_runtime_telemetry</text>
+    <text x="60" y="345" fill="#64748B" font-family="monospace" font-size="12">Indexed keys: [id, timestamp, status]</text>
+
+    <!-- Right: JSON Response Body -->
+    <rect x="420" y="135" width="460" height="315" rx="10" fill="rgba(0, 0, 0, 0.4)" stroke="rgba(255,255,255,0.06)"/>
+    <!-- Response status tag -->
+    <text x="440" y="168" fill="#10B981" font-family="monospace" font-size="13">Status: 200 OK  •  Time: 18ms</text>
+    <text x="440" y="205" fill="#E2E8F0" font-family="monospace" font-size="12">{</text>
+    <text x="460" y="230" fill="#94A3B8" font-family="monospace" font-size="12">"status": <tspan fill="#10B981">"healthy"</tspan>,</text>
+    <text x="460" y="255" fill="#94A3B8" font-family="monospace" font-size="12">"uptime_seconds": <tspan fill="#F59E0B">864200</tspan>,</text>
+    <text x="460" y="280" fill="#94A3B8" font-family="monospace" font-size="12">"server": <tspan fill="#06B6D4">"Node.js / Express"</tspan>,</text>
+    <text x="460" y="305" fill="#94A3B8" font-family="monospace" font-size="12">"database": <tspan fill="#3B82F6">"PostgreSQL 16"</tspan>,</text>
+    <text x="460" y="330" fill="#94A3B8" font-family="monospace" font-size="12">"query_latency": <tspan fill="#A855F7">"1.4ms"</tspan></text>
+    <text x="440" y="355" fill="#E2E8F0" font-family="monospace" font-size="12">}</text>
+  </g>
+</svg>
