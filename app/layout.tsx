@@ -5,7 +5,6 @@ import { Navbar } from "@/components/navbar/Navbar";
 import { Footer } from "@/components/footer/Footer";
 import { BackgroundGrid } from "@/components/animations/BackgroundGrid";
 import { personalInfo } from "@/data/social";
-import { assetPath } from "@/lib/utils";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -71,7 +70,7 @@ export const metadata: Metadata = {
     siteName: "Meskatul Masabhi Shanto Portfolio",
     images: [
       {
-        url: assetPath("/images/og-image.svg"),
+        url: "/images/og-image.svg",
         width: 1200,
         height: 630,
         alt: "Meskatul Masabhi Shanto - Full-Stack Web Developer & UI/UX Designer",
@@ -83,12 +82,12 @@ export const metadata: Metadata = {
     title: "Meskatul Masabhi Shanto | Full-Stack Web Developer & UI/UX Designer",
     description:
       "Full-Stack Web Developer & UI/UX Designer specializing in modern, responsive, and user-focused digital experiences.",
-    images: [assetPath("/images/og-image.svg")],
+    images: ["/images/og-image.svg"],
   },
   icons: {
-    icon: assetPath("/favicon.svg"),
-    shortcut: assetPath("/favicon.svg"),
-    apple: assetPath("/favicon.svg"),
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
   },
   alternates: {
     canonical: "https://shanto.dev",
@@ -126,7 +125,11 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} dark`}>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${inter.variable} ${spaceGrotesk.variable} dark`}
+    >
       <head>
         <script
           type="application/ld+json"

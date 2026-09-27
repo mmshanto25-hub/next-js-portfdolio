@@ -1,16 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, ArrowUpRight, FileDown, Sparkles, Code2, Layers, Cpu } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
-import { personalInfo } from "@/data/social";
+import { personalInfo as fallbackInfo } from "@/data/social";
+import type { ProfileData } from "@/lib/content";
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
+  const [profile, setProfile] = useState<Partial<ProfileData>>(fallbackInfo);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    async function loadHeroProfile() {
+      try {
+        const res = await fetch("/api/admin/content?section=profile");
+        const json = await res.json();
+        if (json.success && json.data) {
+          setProfile(json.data);
+        }
+      } catch (e) {
+        // Fall back
+      }
+    }
+    loadHeroProfile();
+  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (shouldReduceMotion) return;
@@ -38,7 +55,7 @@ export function Hero() {
         >
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs sm:text-sm font-mono tracking-wider backdrop-blur-md shadow-lg shadow-blue-500/10">
             <span className="w-2 h-2 rounded-full bg-accent-cyan animate-pulse" />
-            <span>{personalInfo.status}</span>
+            <span>{profile.status || "AVAILABLE FOR OPPORTUNITIES"}</span>
           </div>
         </motion.div>
 
@@ -64,7 +81,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className="mt-6 max-w-2xl text-base sm:text-lg md:text-xl text-text-secondary leading-relaxed font-normal"
         >
-          {personalInfo.bioShort}
+          {profile.bioShort || fallbackInfo.bioShort}
         </motion.p>
 
         {/* Action Buttons */}

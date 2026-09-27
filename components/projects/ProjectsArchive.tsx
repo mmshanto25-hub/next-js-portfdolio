@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { projects, projectCategories, type ProjectCategory } from "@/data/projects";
+import { projects as fallbackProjects, projectCategories, type ProjectCategory, type Project } from "@/data/projects";
 import {
   Search,
   LayoutGrid,
@@ -15,18 +15,34 @@ import {
   Layers,
 } from "lucide-react";
 import { Github } from "@/components/ui/Icons";
-import { assetPath, cn } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { FadeIn } from "@/components/animations/FadeIn";
 import { Badge } from "@/components/ui/Badge";
 
 export function ProjectsArchive() {
+  const [allProjects, setAllProjects] = useState<Project[]>(fallbackProjects);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>("All");
   const [viewMode, setViewMode] = useState<"grid" | "detailed">("grid");
 
+  useEffect(() => {
+    async function loadDynamicProjects() {
+      try {
+        const res = await fetch("/api/admin/content?section=projects");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          setAllProjects(json.data);
+        }
+      } catch (err) {
+        // Fall back
+      }
+    }
+    loadDynamicProjects();
+  }, []);
+
   // Filter projects
   const filteredProjects = useMemo(() => {
-    return projects.filter((project) => {
+    return allProjects.filter((project) => {
       const matchesCategory =
         selectedCategory === "All" || project.category === selectedCategory;
 
@@ -72,7 +88,7 @@ export function ProjectsArchive() {
           {/* View Mode Toggle & Total Count */}
           <div className="flex items-center gap-4 self-center">
             <span className="text-xs font-mono text-text-muted">
-              Showing <strong className="text-white">{filteredProjects.length}</strong> of {projects.length}
+              Showing <strong className="text-white">{filteredProjects.length}</strong> of {allProjects.length}
             </span>
 
             <div className="flex items-center p-1 rounded-xl bg-white/5 border border-white/10">
@@ -162,7 +178,7 @@ export function ProjectsArchive() {
                     className="block relative w-full aspect-[16/10] overflow-hidden bg-slate-900 border-b border-white/[0.08]"
                   >
                     <Image
-                      src={assetPath(project.image)}
+                      src={project.image}
                       alt={project.title}
                       fill
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

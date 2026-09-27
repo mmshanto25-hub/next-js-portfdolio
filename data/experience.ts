@@ -87,3 +87,5 @@ export const experiencePhilosophy = {
     },
   ],
 };
+
+export type ExperiencePhilosophy = typeof experiencePhilosophy;

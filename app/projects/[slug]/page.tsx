@@ -23,13 +23,15 @@ import {
 import { Github } from "@/components/ui/Icons";
 import { Badge } from "@/components/ui/Badge";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { assetPath } from "@/lib/utils";
+
+import { getProjects, getProjectBySlug } from "@/lib/content";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
+  const projects = await getProjects();
   return projects.map((p) => ({
     slug: p.slug,
   }));
@@ -39,7 +41,7 @@ export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
+  const project = await getProjectBySlug(slug);
 
   if (!project) {
     return {
@@ -60,6 +62,7 @@ export async function generateMetadata({
 
 export default async function ProjectCaseStudyPage({ params }: ProjectPageProps) {
   const { slug } = await params;
+  const projects = await getProjects();
   const projectIndex = projects.findIndex((p) => p.slug === slug);
 
   if (projectIndex === -1) {
@@ -142,7 +145,7 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
         {/* 2. Visual Container */}
         <div className="mb-20 rounded-3xl overflow-hidden bg-slate-900/60 border border-white/10 shadow-2xl relative aspect-[16/9] w-full">
           <Image
-            src={assetPath(project.image)}
+            src={project.image}
             alt={project.title}
             fill
             priority

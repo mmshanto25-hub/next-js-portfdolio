@@ -1,19 +1,35 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FadeIn } from "@/components/animations/FadeIn";
-import { projects } from "@/data/projects";
+import { projects as fallbackProjects, type Project } from "@/data/projects";
 import { ArrowUpRight, ExternalLink, ArrowRight } from "lucide-react";
 import { Github } from "@/components/ui/Icons";
 import { Badge } from "@/components/ui/Badge";
-import { assetPath } from "@/lib/utils";
 
 export function FeaturedProjectsSection() {
-  const featuredProjects = projects.filter((p) => p.featured).slice(0, 4);
+  const [allProjects, setAllProjects] = useState<Project[]>(fallbackProjects);
+
+  useEffect(() => {
+    async function loadDynamicProjects() {
+      try {
+        const res = await fetch("/api/admin/content?section=projects");
+        const json = await res.json();
+        if (json.success && Array.isArray(json.data)) {
+          setAllProjects(json.data);
+        }
+      } catch (err) {
+        // Fall back
+      }
+    }
+    loadDynamicProjects();
+  }, []);
+
+  const featuredProjects = allProjects.filter((p) => p.featured).slice(0, 4);
 
   return (
     <section id="featured-projects" className="py-24 sm:py-32 relative">
@@ -45,7 +61,7 @@ export function FeaturedProjectsSection() {
                       className="group block relative w-full aspect-[16/9] rounded-2xl overflow-hidden bg-slate-900/60 border border-white/10"
                     >
                       <Image
-                        src={assetPath(project.image)}
+                        src={project.image}
                         alt={project.title}
                         fill
                         sizes="(max-width: 1024px) 100vw, 55vw"

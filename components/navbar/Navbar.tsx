@@ -6,22 +6,54 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
+import type { NavigationConfig } from "@/lib/content";
 
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Skills", href: "/skills" },
-  { name: "Projects", href: "/projects" },
-  { name: "Experience", href: "/experience" },
-  { name: "Services", href: "/services" },
-  { name: "Resume", href: "/resume" },
-  { name: "Contact", href: "/contact" },
-];
+const defaultNavConfig: NavigationConfig = {
+  logoText: "SHANTO",
+  logoAccent: ".",
+  ctaButtonText: "Let's Talk",
+  ctaButtonHref: "/contact",
+  navLinks: [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Skills", href: "/skills" },
+    { name: "Projects", href: "/projects" },
+    { name: "Experience", href: "/experience" },
+    { name: "Services", href: "/services" },
+    { name: "Resume", href: "/resume" },
+    { name: "Contact", href: "/contact" },
+  ],
+  footerRole: "Full-Stack Web Developer • UI/UX Designer",
+  footerDegree: "B.Sc. in Computer Science & Engineering • Gono Bishwabidyalay",
+  footerCopyright: "© 2026 Meskatul Masabhi Shanto. All rights reserved.",
+  footerTagline: "Built with Next.js, TypeScript & Tailwind CSS",
+  footerShowAdminLink: true,
+};
 
 export function Navbar() {
   const pathname = usePathname();
+  const [navConfig, setNavConfig] = useState<NavigationConfig>(defaultNavConfig);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // If on admin route, do NOT render public navbar!
+  const isAdminRoute = pathname?.startsWith("/admin");
+
+  // Load dynamic nav settings
+  useEffect(() => {
+    async function loadNav() {
+      try {
+        const res = await fetch("/api/admin/content?section=navigation");
+        const json = await res.json();
+        if (json.success && json.data) {
+          setNavConfig(json.data);
+        }
+      } catch (e) {
+        // Fall back to defaultNavConfig
+      }
+    }
+    loadNav();
+  }, [pathname]);
 
   // Monitor scroll for glassmorphism
   useEffect(() => {
@@ -59,6 +91,12 @@ export function Navbar() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
+  if (isAdminRoute) {
+    return null;
+  }
+
+  const { logoText, logoAccent, ctaButtonText, ctaButtonHref, navLinks } = navConfig;
+
   return (
     <>
       <header
@@ -77,7 +115,8 @@ export function Navbar() {
               className="group flex items-center gap-2 focus:outline-none focus:ring-2 focus:ring-accent-blue/50 rounded-lg p-1"
             >
               <span className="font-display font-black text-xl tracking-tight text-white group-hover:text-accent-blue transition-colors">
-                SHANTO<span className="text-accent-cyan">.</span>
+                {logoText}
+                <span className="text-accent-cyan">{logoAccent}</span>
               </span>
             </Link>
 
@@ -113,13 +152,13 @@ export function Navbar() {
               })}
             </div>
 
-            {/* Right Action: Let's Talk CTA & Mobile Trigger */}
+            {/* Right Action: Dynamic CTA & Mobile Trigger */}
             <div className="flex items-center gap-3">
               <Link
-                href="/contact"
+                href={ctaButtonHref || "/contact"}
                 className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-accent-blue hover:bg-blue-600 rounded-full border border-blue-400/30 shadow-md shadow-blue-500/20 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-accent-blue/50"
               >
-                <span>Let&apos;s Talk</span>
+                <span>{ctaButtonText}</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </Link>
 
@@ -193,11 +232,11 @@ export function Navbar() {
             {/* Bottom Mobile Actions */}
             <div className="max-w-sm mx-auto w-full pt-6 border-t border-white/10 flex flex-col gap-3">
               <Link
-                href="/contact"
+                href={ctaButtonHref || "/contact"}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-3.5 text-sm font-semibold text-white bg-accent-blue rounded-xl shadow-lg shadow-blue-500/25"
               >
-                <span>Let&apos;s Talk</span>
+                <span>{ctaButtonText}</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
               <p className="text-center text-xs text-text-muted">

@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import fs from "fs/promises";
+import path from "path";
 
 export interface ContactRequestBody {
   name: string;
@@ -42,20 +44,34 @@ export async function POST(request: Request) {
       );
     }
 
-    // In a live production environment, this would forward to Resend, SendGrid, or Nodemailer.
-    // For this portfolio, we simulate successful delivery with structured logging.
-    console.log("Contact form submission received:", {
+    // Persist to messages.json
+    const messagesFilePath = path.join(process.cwd(), "data", "messages.json");
+    let currentMessages = [];
+    try {
+      const fileData = await fs.readFile(messagesFilePath, "utf-8");
+      currentMessages = JSON.parse(fileData);
+    } catch {
+      currentMessages = [];
+    }
+
+    const newMessage = {
+      id: `msg_${Date.now()}`,
       name: name.trim(),
       email: email.trim(),
       subject: subject.trim(),
       message: message.trim(),
-      timestamp: new Date().toISOString(),
-    });
+      createdAt: new Date().toISOString(),
+      read: false,
+    };
+
+    currentMessages.unshift(newMessage);
+    await fs.writeFile(messagesFilePath, JSON.stringify(currentMessages, null, 2), "utf-8");
 
     return NextResponse.json(
       {
         success: true,
         message: "Thank you for reaching out! Your message has been received successfully.",
+        messageId: newMessage.id,
       },
       { status: 200 }
     );

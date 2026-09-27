@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
-import { skills, skillCategories, type SkillCategory, type Skill } from "@/data/skills";
+import React, { useState, useMemo, useEffect } from "react";
+import { skills as fallbackSkills, skillCategories, type SkillCategory, type Skill } from "@/data/skills";
 import {
   Search,
   Code2,
@@ -35,13 +35,29 @@ const categoryIcons: Record<string, React.ComponentType<{ className?: string }>>
 };
 
 export function SkillsDashboard() {
+  const [allSkills, setAllSkills] = useState<Skill[]>(fallbackSkills);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<SkillCategory>("All");
   const [activeTag, setActiveTag] = useState<string | null>(null);
 
+  useEffect(() => {
+    async function loadDynamicSkills() {
+      try {
+        const res = await fetch("/api/admin/content?section=skills");
+        const json = await res.json();
+        if (json.success && json.data && Array.isArray(json.data.skills)) {
+          setAllSkills(json.data.skills);
+        }
+      } catch (e) {
+        // Fall back
+      }
+    }
+    loadDynamicSkills();
+  }, []);
+
   // Filter skills based on search, category, and selected tag
   const filteredSkills = useMemo(() => {
-    return skills.filter((skill) => {
+    return allSkills.filter((skill) => {
       const matchesCategory =
         selectedCategory === "All" || skill.category === selectedCategory;
 
@@ -58,16 +74,16 @@ export function SkillsDashboard() {
 
       return matchesCategory && matchesSearch && matchesTag;
     });
-  }, [searchQuery, selectedCategory, activeTag]);
+  }, [allSkills, searchQuery, selectedCategory, activeTag]);
 
   // Count by category
   const categoryCounts = useMemo(() => {
-    const counts: Record<string, number> = { All: skills.length };
-    skills.forEach((s) => {
+    const counts: Record<string, number> = { All: allSkills.length };
+    allSkills.forEach((s) => {
       counts[s.category] = (counts[s.category] || 0) + 1;
     });
     return counts;
-  }, []);
+  }, [allSkills]);
 
   return (
     <div className="w-full">
