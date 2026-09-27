@@ -1,0 +1,230 @@
+export interface ServiceItem {
+  id: string;
+  slug: string;
+  number: string;
+  title: string;
+  shortDescription: string;
+  longDescription: string;
+  iconName: string;
+  deliverables: string[];
+  keyAspects: { title: string; description: string }[];
+  technologies: string[];
+}
+
+export const services: ServiceItem[] = [
+  {
+    id: "frontend-development",
+    slug: "frontend-development",
+    number: "01",
+    title: "Frontend Development",
+    shortDescription: "Modern responsive frontend interfaces built with React, Next.js, and TypeScript.",
+    longDescription:
+      "Crafting high-performance, modular, and accessible user interfaces. I engineer client applications that respond fluidly across mobile, tablet, and high-resolution displays using industry-standard component architecture.",
+    iconName: "Monitor",
+    deliverables: [
+      "Responsive, fluid web interfaces tailored for every screen size",
+      "Modular, reusable React and Next.js component systems",
+      "Strong type-safe development using TypeScript",
+      "Lighthouse-optimized performance and Core Web Vitals",
+      "Semantic HTML5 structure and WCAG accessibility standards",
+    ],
+    keyAspects: [
+      {
+        title: "Component Architecture",
+        description: "Decoupled, reusable components that scale cleanly as application complexity expands.",
+      },
+      {
+        title: "Modern React & Next.js",
+        description: "Leveraging App Router, Server Components, suspense boundaries, and client state primitives.",
+      },
+      {
+        title: "Performance & Accessibility",
+        description: "Asset optimization, zero layout shift, semantic tags, ARIA attributes, and keyboard navigation.",
+      },
+    ],
+    technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "HTML5", "CSS3"],
+  },
+  {
+    id: "fullstack-development",
+    slug: "fullstack-development",
+    number: "02",
+    title: "Full-Stack Development",
+    shortDescription: "Complete web applications with backend and database integration.",
+    longDescription:
+      "Bridging the frontend client with server-side logic, secure RESTful endpoints, and robust database layers. Building unified full-stack systems designed for maintainability and data consistency.",
+    iconName: "Layers",
+    deliverables: [
+      "End-to-end web applications with connected backend services",
+      "Structured REST API endpoints with robust error handling",
+      "Database schema modeling with MongoDB, PostgreSQL, or MySQL",
+      "Secure authentication flows, session handling, and authorization",
+      "Scalable application architecture separating data and view layers",
+    ],
+    keyAspects: [
+      {
+        title: "Backend & APIs",
+        description: "Clean RESTful endpoints built with Node.js and Express.js with proper HTTP status conventions.",
+      },
+      {
+        title: "Database Engineering",
+        description: "Schema design, relational constraints, indexing, and NoSQL document structures.",
+      },
+      {
+        title: "Integrated Architecture",
+        description: "Seamless state synchronization between client React views and server responses.",
+      },
+    ],
+    technologies: ["Node.js", "Express.js", "REST API", "MongoDB", "PostgreSQL", "MySQL", "Next.js"],
+  },
+  {
+    id: "ui-ux-design",
+    slug: "ui-ux-design",
+    number: "03",
+    title: "UI/UX Design",
+    shortDescription: "Clean, intuitive, and user-focused interfaces prioritizing usability and clarity.",
+    longDescription:
+      "Designing digital products that balance aesthetic beauty with functional clarity. Translating user needs into wireframes, design systems, and responsive interactive prototypes in Figma.",
+    iconName: "Figma",
+    deliverables: [
+      "Low-fidelity wireframes exploring layouts and user journeys",
+      "High-fidelity interactive visual prototypes in Figma",
+      "Comprehensive design systems (colors, typography, spacing, components)",
+      "Information architecture and intuitive navigation workflows",
+      "Developer-ready design specs and component tokens",
+    ],
+    keyAspects: [
+      {
+        title: "User Flows & Wireframes",
+        description: "Mapping out user intent to eliminate friction points before writing a single line of code.",
+      },
+      {
+        title: "Visual Systems",
+        description: "Consistent typography hierarchies, balanced whitespace, and purposeful color palettes.",
+      },
+      {
+        title: "Design-to-Code Alignment",
+        description: "Designing with engineering constraints in mind, ensuring 1:1 translation from Figma to React.",
+      },
+    ],
+    technologies: ["Figma", "UI/UX Design", "Responsive Layouts", "Design Systems", "Prototyping"],
+  },
+  {
+    id: "website-development",
+    slug: "website-development",
+    number: "04",
+    title: "Website Development",
+    shortDescription: "Business websites, landing pages, and custom websites built for speed and engagement.",
+    longDescription:
+      "Creating bespoke web destinations that present brands with polish, authority, and modern appeal. Optimized for search engines, lightning-fast load times, and seamless cross-browser compatibility.",
+    iconName: "Globe2",
+    deliverables: [
+      "Custom business websites and high-converting landing pages",
+      "Portfolio websites showcasing creative work and engineering case studies",
+      "SEO-friendly structure with metadata, Open Graph, and semantic tags",
+      "Cross-device responsiveness tested across modern browsers",
+      "Fast page load times with minimal script payloads",
+    ],
+    keyAspects: [
+      {
+        title: "Brand Authority",
+        description: "High-impact visual presentation that elevates brand credibility immediately upon landing.",
+      },
+      {
+        title: "Search Engine Optimization",
+        description: "Clean meta tags, OpenGraph previews, canonical links, and semantic document structuring.",
+      },
+      {
+        title: "Responsive Craft",
+        description: "Carefully proportioned typography and fluid grids that look pristine on any display.",
+      },
+    ],
+    technologies: ["Next.js", "Tailwind CSS", "HTML5", "CSS3", "TypeScript"],
+  },
+  {
+    id: "api-integration",
+    slug: "api-integration",
+    number: "05",
+    title: "API Integration",
+    shortDescription: "Connecting applications with external APIs and services for dynamic functionality.",
+    longDescription:
+      "Connecting web clients and servers with third-party services, data feeds, and external APIs. Ensuring data transformations, optimistic updates, and graceful error recovery.",
+    iconName: "Zap",
+    deliverables: [
+      "Third-party REST API integrations and webhook handling",
+      "Data serialization, error normalization, and caching strategies",
+      "Secure API key management and environment variable safety",
+      "Dynamic data fetching with loading skeletons and error boundaries",
+      "Integration testing to verify endpoint resilience",
+    ],
+    keyAspects: [
+      {
+        title: "REST APIs & Web Services",
+        description: "Consuming JSON APIs reliably with clean asynchronous patterns and type validation.",
+      },
+      {
+        title: "Data Handling & State",
+        description: "Transforming raw server payloads into typed client state with minimal re-renders.",
+      },
+      {
+        title: "Fault Tolerance",
+        description: "Graceful fallbacks, informative feedback states, and retry strategies for unstable connections.",
+      },
+    ],
+    technologies: ["REST API", "API Integration", "JavaScript", "TypeScript", "Node.js"],
+  },
+];
+
+export interface WorkflowStep {
+  number: string;
+  title: string;
+  iconName: string;
+  description: string;
+  details: string[];
+}
+
+export const workflowSteps: WorkflowStep[] = [
+  {
+    number: "01",
+    title: "Discover",
+    iconName: "Search",
+    description: "Analyzing project goals, target audience, technical scope, and functional requirements.",
+    details: [
+      "Understand problem statement and user needs",
+      "Define functional and technical boundaries",
+      "Establish milestone roadmap and core objectives",
+    ],
+  },
+  {
+    number: "02",
+    title: "Design",
+    iconName: "Layout",
+    description: "Structuring information architecture, wireframing user flows, and crafting visual systems.",
+    details: [
+      "Create intuitive user journeys and wireframes",
+      "Develop cohesive typography, colors, and component tokens",
+      "Review interactive Figma prototypes for feedback",
+    ],
+  },
+  {
+    number: "03",
+    title: "Develop",
+    iconName: "Code2",
+    description: "Translating designs into clean, typed, modular code with modern frameworks.",
+    details: [
+      "Build modular React / Next.js component trees",
+      "Integrate state management, backend logic, and APIs",
+      "Test responsive breakpoints and accessibility standards",
+    ],
+  },
+  {
+    number: "04",
+    title: "Deliver",
+    iconName: "Rocket",
+    description: "Rigorous testing, performance audit, deployment setup, and final launch verification.",
+    details: [
+      "Audit Core Web Vitals and Lighthouse scores",
+      "Verify cross-browser fidelity and mobile responsiveness",
+      "Deploy to production environments with CI/CD checks",
+    ],
+  },
+];

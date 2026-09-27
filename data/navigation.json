@@ -1,0 +1,45 @@
+{
+  "logoText": "SHANT0",
+  "logoAccent": "",
+  "ctaButtonText": "Let's Talk",
+  "ctaButtonHref": "/contact",
+  "navLinks": [
+    {
+      "name": "Home",
+      "href": "/"
+    },
+    {
+      "name": "About",
+      "href": "/about"
+    },
+    {
+      "name": "Skills",
+      "href": "/skills"
+    },
+    {
+      "name": "Projects",
+      "href": "/projects"
+    },
+    {
+      "name": "Experience",
+      "href": "/experience"
+    },
+    {
+      "name": "Services",
+      "href": "/services"
+    },
+    {
+      "name": "Resume",
+      "href": "/resume"
+    },
+    {
+      "name": "Contact",
+      "href": "/contact"
+    }
+  ],
+  "footerRole": "Full-Stack Web Developer • UI/UX Designer",
+  "footerDegree": "B.Sc. in Computer Science & Engineering • Gono Bishwabidyalay",
+  "footerCopyright": "© 2026 Meskatul Masabhi Shanto. All rights reserved.",
+  "footerTagline": "Built with Next.js, TypeScript & Tailwind CSS",
+  "footerShowAdminLink": true
+}

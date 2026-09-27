@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050816"/>
+      <stop offset="50%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#080E24"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3B82F6"/>
+      <stop offset="100%" stop-color="#06B6D4"/>
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="675" fill="url(#bgGrad)"/>
+  
+  <!-- Subtle Grid -->
+  <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+    <line x1="0" y1="135" x2="1200" y2="135"/>
+    <line x1="0" y1="270" x2="1200" y2="270"/>
+    <line x1="0" y1="405" x2="1200" y2="405"/>
+    <line x1="0" y1="540" x2="1200" y2="540"/>
+    <line x1="240" y1="0" x2="240" y2="675"/>
+    <line x1="480" y1="0" x2="480" y2="675"/>
+    <line x1="720" y1="0" x2="720" y2="675"/>
+    <line x1="960" y1="0" x2="960" y2="675"/>
+  </g>
+
+  <!-- Glow Orb -->
+  <circle cx="900" cy="200" r="160" fill="#3B82F6" opacity="0.15" filter="url(#glow)"/>
+  <circle cx="350" cy="480" r="140" fill="#06B6D4" opacity="0.12" filter="url(#glow)"/>
+
+  <!-- Dashboard Window Container -->
+  <rect x="120" y="80" width="960" height="515" rx="16" fill="rgba(15, 23, 42, 0.75)" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1.5"/>
+  
+  <!-- Top Bar -->
+  <rect x="120" y="80" width="960" height="48" rx="16" fill="rgba(255, 255, 255, 0.03)"/>
+  <circle cx="150" cy="104" r="6" fill="#EF4444" opacity="0.8"/>
+  <circle cx="170" cy="104" r="6" fill="#F59E0B" opacity="0.8"/>
+  <circle cx="190" cy="104" r="6" fill="#10B981" opacity="0.8"/>
+  <text x="600" y="110" fill="#94A3B8" font-family="monospace" font-size="14" text-anchor="middle">devpulse.shanto.dev / analytics</text>
+
+  <!-- Sidebar -->
+  <rect x="120" y="128" width="180" height="467" fill="rgba(255, 255, 255, 0.02)"/>
+  <rect x="145" y="160" width="130" height="32" rx="6" fill="rgba(59, 130, 246, 0.2)"/>
+  <text x="160" y="181" fill="#3B82F6" font-family="sans-serif" font-weight="600" font-size="13">Overview</text>
+  <rect x="145" y="202" width="130" height="28" rx="6" fill="transparent"/>
+  <text x="160" y="221" fill="#64748B" font-family="sans-serif" font-size="13">Repositories</text>
+  <rect x="145" y="240" width="130" height="28" rx="6" fill="transparent"/>
+  <text x="160" y="259" fill="#64748B" font-family="sans-serif" font-size="13">Sprint Tasks</text>
+  <rect x="145" y="278" width="130" height="28" rx="6" fill="transparent"/>
+  <text x="160" y="297" fill="#64748B" font-family="sans-serif" font-size="13">API Metrics</text>
+
+  <!-- Metrics Cards -->
+  <!-- Card 1 -->
+  <rect x="330" y="160" width="220" height="110" rx="12" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="350" y="190" fill="#94A3B8" font-family="sans-serif" font-size="13">Active Projects</text>
+  <text x="350" y="235" fill="#FFFFFF" font-family="sans-serif" font-weight="bold" font-size="32">12</text>
+  <text x="490" y="235" fill="#10B981" font-family="sans-serif" font-size="12">+4.2%</text>
+
+  <!-- Card 2 -->
+  <rect x="575" y="160" width="220" height="110" rx="12" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="595" y="190" fill="#94A3B8" font-family="sans-serif" font-size="13">API Response</text>
+  <text x="595" y="235" fill="#FFFFFF" font-family="sans-serif" font-weight="bold" font-size="32">28ms</text>
+  <text x="735" y="235" fill="#06B6D4" font-family="sans-serif" font-size="12">Optimal</text>
+
+  <!-- Card 3 -->
+  <rect x="820" y="160" width="220" height="110" rx="12" fill="rgba(255, 255, 255, 0.04)" stroke="rgba(255,255,255,0.08)"/>
+  <text x="840" y="190" fill="#94A3B8" font-family="sans-serif" font-size="13">Total Commits</text>
+  <text x="840" y="235" fill="#FFFFFF" font-family="sans-serif" font-weight="bold" font-size="32">480+</text>
+  <text x="975" y="235" fill="#8B5CF6" font-family="sans-serif" font-size="12">Weekly</text>
+
+  <!-- Activity Chart Section -->
+  <rect x="330" y="295" width="710" height="260" rx="12" fill="rgba(255, 255, 255, 0.03)" stroke="rgba(255,255,255,0.06)"/>
+  <text x="355" y="330" fill="#FFFFFF" font-family="sans-serif" font-weight="600" font-size="15">System Velocity &amp; API Load</text>
+
+  <!-- Chart lines -->
+  <path d="M 360 500 Q 420 460 480 480 T 600 410 T 720 430 T 840 370 T 960 380 L 1000 360" fill="none" stroke="url(#accentGrad)" stroke-width="3.5" filter="url(#glow)"/>
+  <path d="M 360 500 Q 420 460 480 480 T 600 410 T 720 430 T 840 370 T 960 380 L 1000 360 L 1000 520 L 360 520 Z" fill="url(#accentGrad)" opacity="0.08"/>
+
+  <!-- Secondary chart line -->
+  <path d="M 360 515 Q 430 495 500 505 T 620 460 T 740 480 T 860 430 T 980 420" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="4 4" opacity="0.6"/>
+
+  <circle cx="840" cy="370" r="5" fill="#06B6D4" stroke="#FFFFFF" stroke-width="2"/>
+</svg>

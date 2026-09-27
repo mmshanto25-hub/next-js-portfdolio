@@ -1,0 +1,357 @@
+{
+  "projects": [
+    {
+      "slug": "devpulse-dashboard",
+      "number": "01",
+      "title": "DevPulse Workflow & Activity Dashboard",
+      "subtitle": "Full-Stack Web Application for Task & Repository Tracking",
+      "description": "A comprehensive developer productivity dashboard built with Next.js, Node.js, and MongoDB, featuring real-time activity metrics, project status boards, and responsive data visualizers.",
+      "category": "Full-Stack",
+      "year": "2026",
+      "image": "/projects/devpulse.svg",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB"
+      ],
+      "featured": true,
+      "liveUrl": "https://github.com/shantodev/devpulse-dashboard",
+      "githubUrl": "https://github.com/shantodev/devpulse-dashboard",
+      "overview": "DevPulse was created as a full-stack personal engineering initiative to consolidate multi-repository activity, daily development tasks, and progress timelines into a single unified dark-mode dashboard.",
+      "problem": "Developers often juggle multiple project backlogs, code repositories, and local development notes without an integrated dashboard that balances visual clarity, low latency, and structured state persistence.",
+      "solution": "Engineered an end-to-end full-stack platform featuring a Next.js frontend integrated with an Express.js and MongoDB backend. Implemented server-side API routes, responsive metrics widgets, and MongoDB document persistence for real-time task status updates.",
+      "features": [
+        "Dynamic activity feed displaying recent commits and task completions",
+        "Interactive status boards with instant status state transitions",
+        "Structured REST API endpoints handling authentication and task CRUD operations",
+        "Dark-mode first interface styled with Tailwind CSS and responsive flex grids",
+        "Optimized data querying with MongoDB indexing for smooth rendering"
+      ],
+      "technologyStack": [
+        {
+          "category": "Frontend Layer",
+          "items": [
+            "Next.js App Router",
+            "TypeScript",
+            "Tailwind CSS",
+            "Lucide Icons"
+          ]
+        },
+        {
+          "category": "Backend & API",
+          "items": [
+            "Node.js",
+            "Express.js",
+            "RESTful Architecture",
+            "JWT Authentication"
+          ]
+        },
+        {
+          "category": "Database & Storage",
+          "items": [
+            "MongoDB",
+            "Mongoose ORM",
+            "Document Schema Validation"
+          ]
+        }
+      ],
+      "designProcess": "Started with low-fidelity wireframes in Figma to determine optimal card layouts for dense data presentation. Selected a high-contrast dark palette (#050816 background with subtle slate borders) to ensure extended viewing comfort.",
+      "developmentProcess": "Implemented a modular component structure starting with atomic UI elements (stat badges, buttons, cards) and advancing to composite views. Configured REST API routes in Express with validation middleware before hooking into the Next.js client state.",
+      "challenges": [
+        "Designing a clean UI that prevents information overload across complex data streams.",
+        "Synchronizing client-side UI states with asynchronous MongoDB responses with minimal re-renders.",
+        "Structuring flexible NoSQL document schemas for diverse project metadata."
+      ],
+      "results": [
+        "Successfully deployed a functional full-stack dashboard demonstrating end-to-end architecture.",
+        "Achieved sub-second page loads and zero layout shift on desktop and mobile viewports.",
+        "Established a reusable full-stack boilerplate for subsequent web application projects."
+      ],
+      "architectureNotes": "Clean separation of concerns with isolated controller logic, type-safe API contracts via TypeScript, and modular Next.js views."
+    },
+    {
+      "slug": "zenith-ui-system",
+      "number": "02",
+      "title": "Zenith Design System & Component Library",
+      "subtitle": "Accessible, Dark-Themed UI System in Figma & React",
+      "description": "A modular, accessible UI component system crafted from scratch in Figma and coded in React with TypeScript and Tailwind CSS, focusing on semantic tokens and micro-interactions.",
+      "category": "UI/UX",
+      "year": "2026",
+      "image": "/projects/zenith.svg",
+      "technologies": [
+        "Figma",
+        "React.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "UI/UX Design"
+      ],
+      "featured": true,
+      "liveUrl": "https://github.com/shantodev/zenith-ui-system",
+      "githubUrl": "https://github.com/shantodev/zenith-ui-system",
+      "overview": "Zenith is a complete design-to-code project built to bridge the gap between Figma design tokens and production React components, ensuring 100% visual and functional consistency.",
+      "problem": "Frontend projects frequently suffer from fragmented styling, inconsistent padding/typography, and poor accessibility when design tokens are not formalized into a repeatable component library.",
+      "solution": "Created a unified design token system in Figma covering typography scales, elevation shadows, and color ramps. Translated each component into production-ready React + TypeScript primitives with full keyboard navigation and ARIA attributes.",
+      "features": [
+        "20+ atomic and molecular UI components (buttons, dialogs, inputs, tabs, toasts)",
+        "Strict token architecture for spacing, typography, and dark-theme color variants",
+        "Full keyboard accessibility (WCAG compliant) with visible focus rings",
+        "Interactive component documentation page with live preview sandboxes",
+        "Zero third-party CSS dependencies outside of Tailwind CSS utility classes"
+      ],
+      "technologyStack": [
+        {
+          "category": "Design & Prototyping",
+          "items": [
+            "Figma",
+            "Component Variants",
+            "Auto-Layout",
+            "Design Tokens"
+          ]
+        },
+        {
+          "category": "Implementation",
+          "items": [
+            "React.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "HTML5 Semantics"
+          ]
+        }
+      ],
+      "designProcess": "Defined foundational tokens in Figma using auto-layout and variant properties. Created comprehensive state matrices (default, hover, active, focused, disabled) for all interactive primitives.",
+      "developmentProcess": "Coded each component with strict TypeScript props interfaces and Tailwind CSS utility classes. Tested across multiple browser viewports and validated accessibility with keyboard navigation.",
+      "challenges": [
+        "Maintaining parity between Figma variant properties and React TypeScript prop signatures.",
+        "Ensuring high contrast compliance across dark glassmorphism card surfaces."
+      ],
+      "results": [
+        "Accelerated subsequent frontend project prototyping by providing a reliable UI kit.",
+        "Demonstrated proficiency in translating creative design systems into clean engineering code."
+      ],
+      "architectureNotes": "All components adhere to compound component patterns and accept standard HTML attribute extensions."
+    },
+    {
+      "slug": "nexus-api-gateway",
+      "number": "03",
+      "title": "Nexus API Documentation & Testing Console",
+      "subtitle": "Interactive REST API Testing & Documentation Console",
+      "description": "A developer utility application providing interactive REST API endpoint exploration, parameter inspection, live response testing, and schema validation.",
+      "category": "Web Apps",
+      "year": "2025",
+      "image": "/projects/nexus.svg",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "REST API",
+        "PostgreSQL"
+      ],
+      "featured": true,
+      "liveUrl": "https://github.com/shantodev/nexus-api-gateway",
+      "githubUrl": "https://github.com/shantodev/nexus-api-gateway",
+      "overview": "Nexus is a lightweight developer workspace built to document, inspect, and test RESTful web services directly from the browser with simulated request dispatching.",
+      "problem": "Testing backend endpoints often requires switching between separate documentation tabs and heavyweight desktop clients during early development iterations.",
+      "solution": "Built an intuitive Next.js web application that presents organized endpoint collections, request payload editors, response formatting with syntax highlighting, and SQL schema documentation.",
+      "features": [
+        "Endpoint browser organized by resource collections and HTTP methods",
+        "Interactive parameter and JSON payload editor with validation feedback",
+        "Live request execution proxy with status code parsing and response timers",
+        "Relational schema documentation detailing PostgreSQL table structures",
+        "Search and filter functionality for rapid API endpoint discovery"
+      ],
+      "technologyStack": [
+        {
+          "category": "Frontend View",
+          "items": [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Lucide Icons"
+          ]
+        },
+        {
+          "category": "Backend Engine",
+          "items": [
+            "Node.js",
+            "Express.js",
+            "HTTP Client",
+            "PostgreSQL Documentation"
+          ]
+        }
+      ],
+      "designProcess": "Structured a dual-pane layout inspired by modern developer developer portals—left sidebar for endpoint navigation, central pane for request configuration, and right pane for response output.",
+      "developmentProcess": "Engineered an asynchronous HTTP handler in Next.js to dispatch test requests safely, capture timing metrics, and pretty-print JSON response bodies with error status handling.",
+      "challenges": [
+        "Handling edge-case CORS restrictions and network timeouts cleanly.",
+        "Rendering large JSON payloads efficiently without blocking the main browser thread."
+      ],
+      "results": [
+        "Provided an essential testing playground for backend coursework and personal projects.",
+        "Strengthened deep understanding of HTTP protocol specifications and REST conventions."
+      ]
+    },
+    {
+      "slug": "lumina-creative-showcase",
+      "number": "04",
+      "title": "Lumina Digital Studio Showcase",
+      "subtitle": "High-Performance Editorial Showcase with Fluid Layouts",
+      "description": "An editorial-style web experience showcasing modern typography, asymmetric grid layouts, responsive media containers, and smooth scroll interactions.",
+      "category": "Frontend",
+      "year": "2025",
+      "image": "/projects/lumina.svg",
+      "technologies": [
+        "Next.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "Responsive Web Design"
+      ],
+      "featured": true,
+      "liveUrl": "https://github.com/shantodev/lumina-showcase",
+      "githubUrl": "https://github.com/shantodev/lumina-showcase",
+      "overview": "Lumina was designed as an exploration into high-end editorial web design, combining bold typography, large whitespace, and fluid CSS grid structures.",
+      "problem": "Many modern web layouts feel generic and template-driven, lacking the visual hierarchy, typographic distinction, and bespoke pacing of print publications.",
+      "solution": "Engineered a Next.js application that treats digital screens like modern architectural magazines, utilizing asymmetric flexbox systems, subtle borders, and balanced typography.",
+      "features": [
+        "Asymmetric multi-column layout adapting cleanly from mobile to ultrawide viewports",
+        "Custom typographic scale utilizing modern display and sans-serif pairings",
+        "Glassmorphic card components with fine 1px subtle borders",
+        "Optimized responsive media containers preventing content layout shifts",
+        "Subtle interactive hover states engineered with CSS transitions"
+      ],
+      "technologyStack": [
+        {
+          "category": "Frontend Stack",
+          "items": [
+            "Next.js App Router",
+            "TypeScript",
+            "Tailwind CSS",
+            "CSS Grid & Flexbox"
+          ]
+        }
+      ],
+      "designProcess": "Explored magazine and editorial layouts in Figma, experimenting with negative space, high contrast, and dynamic content cards.",
+      "developmentProcess": "Implemented responsive CSS Grid rules with strict breakpoint triggers in Tailwind CSS, verifying visual stability on 320px mobile displays up to 4K desktop screens.",
+      "challenges": [
+        "Ensuring complex asymmetric layouts collapsed cleanly on smaller phone screens.",
+        "Balancing delicate visual accents without sacrificing readability or contrast."
+      ],
+      "results": [
+        "Achieved a 100/100 Lighthouse Performance and Accessibility score.",
+        "Created an original aesthetic direction informing the portfolio's visual identity."
+      ]
+    },
+    {
+      "slug": "algo-visualizer",
+      "number": "05",
+      "title": "Algorithm & Data Structure Visualizer",
+      "subtitle": "Interactive Visualizer for Sorting & Graph Traversal",
+      "description": "An educational interactive web visualizer built with JavaScript and DOM manipulation, animating core sorting algorithms and graph traversals in real-time.",
+      "category": "Experiments",
+      "year": "2025",
+      "image": "/projects/algo.svg",
+      "technologies": [
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "DOM",
+        "C++",
+        "Algorithms"
+      ],
+      "featured": true,
+      "liveUrl": "https://github.com/shantodev/algo-visualizer",
+      "githubUrl": "https://github.com/shantodev/algo-visualizer",
+      "overview": "Developed during Computer Science & Engineering coursework to visually map theoretical algorithms (QuickSort, MergeSort, BFS, DFS) into interactive, step-by-step animations.",
+      "problem": "Understanding abstract algorithmic concepts—such as recursion depths, pivot partitioning, and pointer movements—is challenging through static code alone.",
+      "solution": "Built a pure JavaScript visualization engine with speed control, step counters, and visual bar state indicators that bring algorithm complexity to life.",
+      "features": [
+        "Real-time sorting visualizer supporting QuickSort, MergeSort, and BubbleSort",
+        "Speed slider and array size customizer for dynamic computational analysis",
+        "Color-coded visual cues for element comparison, swapping, and sorted states",
+        "Step counter tracking operations for empirical algorithmic time complexity comparison",
+        "Modular JavaScript code structured into algorithmic generator functions"
+      ],
+      "technologyStack": [
+        {
+          "category": "Visualization Engine",
+          "items": [
+            "JavaScript (ES6+)",
+            "DOM Manipulation",
+            "HTML5 Canvas/Elements",
+            "CSS3 Transitions"
+          ]
+        },
+        {
+          "category": "Theoretical Foundation",
+          "items": [
+            "C++ Coursework Algorithms",
+            "Time & Space Complexity Analysis"
+          ]
+        }
+      ],
+      "designProcess": "Sketched state machines representing sorting phases and planned a clean dark control toolbar with intuitive playback buttons.",
+      "developmentProcess": "Used asynchronous delay generators and Promises to pause execution frames, allowing users to inspect individual variable swaps in real time.",
+      "challenges": [
+        "Managing asynchronous event loops to enable pause, resume, and array reset controls reliably.",
+        "Preventing DOM repaint bottlenecks when animating large data arrays."
+      ],
+      "results": [
+        "Served as an effective study tool for university CSE coursework peers.",
+        "Demonstrated core algorithmic mastery bridged with interactive web interfaces."
+      ]
+    },
+    {
+      "slug": "taskflow-kanban",
+      "number": "06",
+      "title": "TaskFlow Kanban Management Workspace",
+      "subtitle": "Fluid Task Management Interface with Local Persistence",
+      "description": "A responsive productivity web application featuring custom drag-and-drop task boards, priority tagging, category filtering, and offline local storage persistence.",
+      "category": "Frontend",
+      "year": "2025",
+      "image": "/projects/taskflow.svg",
+      "technologies": [
+        "React.js",
+        "TypeScript",
+        "Tailwind CSS",
+        "REST API"
+      ],
+      "featured": false,
+      "liveUrl": "https://github.com/shantodev/taskflow-kanban",
+      "githubUrl": "https://github.com/shantodev/taskflow-kanban",
+      "overview": "TaskFlow is a focused frontend project exploring complex user interactions, drag events, and dynamic column state transitions in React.",
+      "problem": "Personal task tracking tools are often overly bloated with configuration options, hindering rapid capture of daily coding items.",
+      "solution": "Built a streamlined Kanban board with drag-friendly cards, inline editing, color-coded priority labels, and immediate state persistence.",
+      "features": [
+        "Multi-column Kanban boards (Backlog, In Progress, Review, Completed)",
+        "HTML5 Drag and Drop API implementation with smooth drop zone indicators",
+        "Tag-based filtering and live text search across active tasks",
+        "Local storage synchronization ensuring data persists between page reloads",
+        "Responsive layout switching to a stacked column view on mobile devices"
+      ],
+      "technologyStack": [
+        {
+          "category": "Frontend Stack",
+          "items": [
+            "React.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "HTML5 Drag and Drop"
+          ]
+        }
+      ],
+      "designProcess": "Created a minimal dark UI with subtle elevation shadows to make cards distinctly draggable against column backgrounds.",
+      "developmentProcess": "Engineered immutable state updates using React hooks to manage task order and column migrations seamlessly.",
+      "challenges": [
+        "Handling drag and drop events across both mouse and touch input devices.",
+        "Maintaining state immutability during complex array re-ordering."
+      ],
+      "results": [
+        "Delivered a polished, fast task organizer used daily during project sprints.",
+        "Solidified state management and interactive event handling in React."
+      ]
+    }
+  ]
+}

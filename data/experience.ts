@@ -1,0 +1,91 @@
+export interface ExperienceItem {
+  id: string;
+  role: string;
+  organization: string;
+  period: string;
+  location: string;
+  type: "Work Experience" | "Independent Development" | "Education";
+  summary: string;
+  highlights: string[];
+  technologies: string[];
+}
+
+export const experiences: ExperienceItem[] = [
+  {
+    id: "independent-frontend",
+    role: "Frontend Projects & Independent Development",
+    organization: "Independent / Personal Projects",
+    period: "September 2025 – April 2026",
+    location: "Remote / Self-Directed",
+    type: "Independent Development",
+    summary:
+      "Intensive practical development cycle building 25+ responsive frontend and full-stack web applications, focusing on modern component architecture, state management, and performance.",
+    highlights: [
+      "Designed and coded 25+ responsive frontend projects utilizing React.js, Next.js, TypeScript, and Tailwind CSS.",
+      "Implemented clean component hierarchies, accessible markup (HTML5/ARIA), and smooth micro-interactions.",
+      "Integrated RESTful APIs, asynchronous data handling, client-side routing, and modern UI patterns.",
+      "Maintained structured version control workflows with Git and GitHub, adhering to clean code standards.",
+      "Explored UI/UX wireframing in Figma to align visual intent with production-grade engineering.",
+    ],
+    technologies: ["React.js", "Next.js", "TypeScript", "Tailwind CSS", "JavaScript", "REST APIs", "Git", "Figma"],
+  },
+  {
+    id: "tahmid-it-park",
+    role: "Digital Marketer",
+    organization: "Tahmid IT Park",
+    period: "January 2025 – July 2025",
+    location: "Dhaka, Bangladesh",
+    type: "Work Experience",
+    summary:
+      "Collaborated on digital marketing initiatives, brand communication, audience engagement strategies, and online content optimization.",
+    highlights: [
+      "Supported digital campaign planning, social channel management, and visual content coordination.",
+      "Monitored key performance metrics and audience engagement data to identify user trends and preferences.",
+      "Collaborated with creative and operational teams to align digital messaging with strategic business objectives.",
+      "Gained valuable perspective on user behavior, conversion pathways, and customer-centric digital experiences.",
+    ],
+    technologies: ["Digital Marketing", "Content Strategy", "Analytics", "Audience Engagement", "Campaign Planning"],
+  },
+  {
+    id: "gono-bishwabidyalay",
+    role: "B.Sc. in Computer Science & Engineering",
+    organization: "Gono Bishwabidyalay",
+    period: "2022 – 2026",
+    location: "Dhaka, Bangladesh",
+    type: "Education",
+    summary:
+      "Comprehensive four-year undergraduate curriculum in core computer science, software engineering principles, algorithms, and systems design.",
+    highlights: [
+      "Studied core computing fundamentals: Data Structures, Algorithms, Object-Oriented Programming (C++/Java), Operating Systems, and DBMS.",
+      "Conducted coursework and academic projects in relational database modeling (MySQL/PostgreSQL) and software testing.",
+      "Strengthened analytical problem-solving skills through algorithmic programming and systems architecture.",
+    ],
+    technologies: ["C", "C++", "Python", "Java", "Data Structures", "Algorithms", "Database Systems (DBMS)", "OOP"],
+  },
+];
+
+export const experiencePhilosophy = {
+  title: "Experience Philosophy",
+  subtitle: "Learning through building, refining through iteration",
+  description:
+    "My journey in technology is rooted in active, practical construction. Rather than solely consuming theory, I test concepts by building real-world projects. Completing over 25+ frontend projects has provided deep muscle memory in React, Next.js, and modern CSS architecture—while my CSE background provides the algorithmic rigor required for scalable engineering.",
+  principles: [
+    {
+      title: "Clean Code & Scalability",
+      description:
+        "Writing readable, maintainable, and well-typed code is as critical as the final visual output. Code is meant for humans first and machines second.",
+    },
+    {
+      title: "User-Centered Engineering",
+      description:
+        "An application is only as good as the user's experience. Performance, accessibility, intuitive flows, and visual clarity are foundational.",
+    },
+    {
+      title: "Iterative Mastery",
+      description:
+        "Consistent execution, incremental refinement, and genuine curiosity drive durable growth across the entire full-stack lifecycle.",
+    },
+  ],
+};
+
+export type ExperiencePhilosophy = typeof experiencePhilosophy;
